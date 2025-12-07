@@ -1,0 +1,13 @@
+🛠️ Technologies & Tools:
+- ASP.NET Core MVC / Web API
+- Entity Framework Core (Migrations, Fluent API, Relations)
+- Identity Authentication & Authorization
+- Filters (Action, Result, Resource, Exception)
+- Dependency Injection (IoC)
+- SOLID Principles & Clean Architecture
+- Serilog (File / DB / Seq / Structured Logging)
+- xUnit, Moq, AutoFixture, FluentAssertions
+- Integration Testing & DOM Testing
+- Minimal APIs & Endpoint Filters
+- Middleware, Routing, Configuration
+- File Export & Import (PDF / CSV / Excel)
