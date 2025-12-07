@@ -1,0 +1,40 @@
+﻿@model IEnumerable<PersonForReturnDTO>
+    @{
+    Layout = null;
+    }
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link href="@(" http://" + Context.Request.Host.ToString() + "/lib/bootstrap/dist/css/bootstrap.min.css" )" rel="stylesheet" />
+    <div class="container p-2 ">
+        <div style="font-size:20px;font-family:Cairo;" class="col">
+            <h1 class="text-Dark text-center ">Persons List</h1>
+            <h2 class="text-Dark mb-2">Report Date : @(DateTime.Now.ToShortDateString()) @(DateTime.Now.ToShortTimeString())</h2>
+        </div>
+        <table style="font-size:20px;font-family:Cairo;" class="table table-hover w-100">
+            <thead>
+                <tr class="text-black">
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Date of Birth</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Country</th>
+                    <th>Receive Emails</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (PersonForReturnDTO person in Model)
+                {
+                <tr class="text-black">
+                    <td class="text-center">@person.Name</td>
+                    <td class="text-center">@person.Email</td>
+                    <td class="text-center">@person.DateOfBirth?.ToString("dd MMM yyyy")</td>
+                    <td class="text-center">@person.Age</td>
+                    <td class="text-center">@person.Gender</td>
+                    <td class="text-center">@person.Country</td>
+                    <td class="text-center">@person.ReceiveEmails</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        <h2 class="text-end me-5">Signature</h2>
+    </div>

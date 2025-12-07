@@ -1,0 +1,26 @@
+﻿@model PersonForReturnDTO
+@{
+    ViewBag.Title = "Delete person";
+}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2 class="text-Dark ">Delete person</h2>
+        </div>
+        <div class="col text-end mt-2">
+            <a asp-controller="Persons" asp-action="Index" class="btn btn-outline-primary"><i class="bi bi-arrow-left-square-fill"></i> Back to persons list</a>
+        </div>
+    </div>
+    <h3>Are you sure to delete this person?</h3>
+    <form asp-controller="Persons" asp-action="Delete" method="post">
+        <div class="form-group p-1 mx-3 mt-0">
+            <label asp-for="Name" class="form-label">Name:</label>
+            <input asp-for="Name" class="form-control" placeholder="Enter name" disabled>
+        </div>
+        <div class="form-group p-1 mx-3">
+            <label asp-for="Email" class="form-label">Email:</label>
+            <input asp-for="Email" class="form-control" placeholder="Enter email" disabled>
+        </div>
+                <button type="submit" class="btn btn-danger ms-3 mt-2">Delete</button>
+           </form>
+</div>

@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Upload Countries from Excel";
+}
+<div class="container">
+    <form asp-controller="Countries" asp-action="UploadFromExcel" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="excelFile">Select xlsx file to upload:</label>
+            <input type="file" class="form-control-file p-2" id="excelFile" name="excelFile">
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </div>
+        <div class="text-danger">@ViewBag.ErrorMessage</div>
+        <div class="text-success">@ViewBag.Message</div>
+    </form>
+</div>

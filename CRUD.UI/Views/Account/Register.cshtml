@@ -1,0 +1,77 @@
+﻿@model RegisterDTO
+@{
+    ViewBag.Title = "Register";
+}
+
+
+<div class="container">
+    <h2>Register</h2>
+    <div class="float-end">Already Registered? <a asp-action="Login" asp-controller="Account" class="link-primary">Login</a></div>
+    <form asp-controller="Account" asp-action="Register" method="post">
+
+        @*PersonName*@
+        <div class="mb-3">
+            <label asp-for="PersonName" class="form-label">Name</label> 
+            <input asp-for="PersonName" class="form-control" />
+            <span asp-validation-for="PersonName" class="text-danger"></span>
+        </div>
+
+        @*Email*@
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label">Email</label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        @*Phone*@
+        <div class="mb-3">
+            <label asp-for="Phone" class="form-label">Phone</label>
+            <input asp-for="Phone" class="form-control" />
+            <span asp-validation-for="Phone" class="text-danger"></span>
+        </div>
+
+        @*Password*@
+        <div class="mb-3">
+            <label asp-for="Password" class="form-label">Password</label>
+            <input asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+
+        </div>
+
+        @*ConfirmPassword*@
+        <div class="mb-3">
+            <label asp-for="ConfirmPassword" class="form-label">Confirm Password</label>
+            <input asp-for="ConfirmPassword" class="form-control" />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+
+        @*Register button*@
+        <div class="mb-3">
+            <div class="w-25"></div>
+            <div class="d-flex">
+                <button class="btn btn-primary" type="submit">Register</button>
+                @if (ViewBag.Errors != null)
+                {
+                    <div class="text-danger me-2">
+                        <ul>
+                            @foreach (string error in ViewBag.Errors)
+                            {
+                                <li class="me-1">@error</li>
+                            }
+                        </ul>
+                    </div>
+                }
+            </div>
+        </div>
+        <div asp-validation-summary="All" class="text-danger"></div>
+    </form>
+</div>
+
+@section Scripts{
+    <script src="https://cdnj.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" asp-fallback-test="window.jQuery" asp-fallback-src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="https://cdnj.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" asp-fallback-test="window.jQuery.validator" asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+
+    <script src="https://cdnj.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js" asp-fallback-test="window.jQuery.validator.unobtrusive" asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+

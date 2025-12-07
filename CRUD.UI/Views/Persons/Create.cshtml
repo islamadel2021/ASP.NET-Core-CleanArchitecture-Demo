@@ -1,0 +1,84 @@
+﻿@model PersonForCreateDTO
+@{
+    ViewBag.Title = "Add new person";
+}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2 class="text-Dark ">Add new person</h2>
+        </div>
+        <div class="col text-end mt-2">
+            <a asp-controller="Persons" asp-action="Index" class="btn btn-outline-primary"><i class="bi bi-arrow-left-square-fill"></i> Back to persons list</a>
+        </div>
+    </div>
+    <form asp-controller="Persons" asp-action="Create" method="post">
+        <div class="form-group p-1 mx-3 mt-0">
+            <label asp-for="Name" class="form-label">Name:</label>
+            <input asp-for="Name" class="form-control" placeholder="Enter name">
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+        <div class="form-group p-1 mx-3">
+            <label asp-for="Email" class="form-label">Email:</label>
+            <input asp-for="Email" class="form-control" placeholder="Enter email">
+            <span class="text-danger" asp-validation-for="Email"></span>
+
+        </div>
+        <div class="form-group p-1 mx-3">
+            <label asp-for="DateOfBirth" class="form-label">Date of Birth:</label>
+            <input asp-for="DateOfBirth" class="form-control">
+            <span class="text-danger" asp-validation-for="DateOfBirth"></span>
+
+        </div>
+        <div class="form-group p-1 mx-3">
+            <label class="form-label">Gender:</label>
+            <div class="form-check ">
+                <input asp-for="Gender" class="form-check-input" type="radio" value="male">
+                <label class="form-check-label" for="male">
+                    Male
+                </label>
+            </div>
+            <div class="form-check">
+                <input asp-for="Gender" class="form-check-input" type="radio" value="female">
+                <label class="form-check-label" for="female">
+                    Female
+                </label>
+            </div>
+            <span class="text-danger" asp-validation-for="Gender"></span>
+        </div>
+        <div class="form-group p-1 mx-3">
+            <label for="country" class="form-label">Country:</label>
+            <select asp-for="CountryId" asp-items="ViewBag.countries" class="form-select form-control">
+                <option value="">Please Select Country</option>
+            </select>
+            <span class="text-danger" asp-validation-for="CountryId"></span>
+            <div class="form-group p-1 mt-2">
+                <label asp-for="ReceiveEmails" class="form-check-label">Receive Emails:</label>
+                <input asp-for="ReceiveEmails" type="checkbox" class="form-check-input ms-2" value="true">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary ms-3 mt-2">Create</button>
+        <div class="text-danger" asp-validation-summary="All"></div>
+        @if (ViewBag.Errors != null)
+        {
+            <div class="text-danger mt-1">
+                <ul>
+                    @foreach (string error in ViewBag.Errors)
+                    {
+                        <li>@error</li>
+                    }
+                </ul>
+            </div>
+        }
+    </form>
+</div>
+
+@section Scripts{
+
+    <script src="https://cdnj.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" asp-fallback-test="window.jQuery" asp-fallback-src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="https://cdnj.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" asp-fallback-test="window.jQuery.validator" asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+
+    <script src="https://cdnj.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js" asp-fallback-test="window.jQuery.validator.unobtrusive" asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js" ></script>
+
+
+}
